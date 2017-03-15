@@ -16,6 +16,7 @@ class ProductsController < ApplicationController
       flash[:warning] = "购物车内已有此商品！"
 
     redirect_to :back
+    end
   end
 
 
