@@ -14,11 +14,8 @@ class ProductsController < ApplicationController
        flash[:notice] = "成功将#{@product.title}加入购物车"
     else
       flash[:warning] = "购物车内已有此商品！"
-
-    redirect_to :back
     end
+      redirect_to :back
   end
-
-
 
 end
