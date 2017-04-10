@@ -15,12 +15,9 @@
       </div>
         <div>  数量:<%= @product.quantity %> </div>
         <div class="product-price"> ￥ <%= @product.price %> </div>
-    <div class="pull-right">
-      <% if @product.quantity.present? && @product.quantity > 0 %>
-         <%= link_to("加入购物车", add_to_cart_product_path(@product), method: :post, class:"btn btn-danger") %>
-      <% else %>
-        已销售一空
-      <% end %>
+    <div class="add-cart pull-right">
+      <%= render :partial => "add-to-cart", :locals => { :product => @product} %>
+
     </div>
   </div>
 </div>
