@@ -40,6 +40,8 @@ gem 'carrierwave'
 gem 'mini_magick'
 gem 'letter_opener', group: :development
 gem 'aasm'
+gem 'rails-i18n'
+gem 'devise-i18n'
 
 
 group :development, :test do
