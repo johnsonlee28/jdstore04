@@ -20,24 +20,24 @@ class Admin::ProductsController < ApplicationController
   end
 
   def edit
-    @product = Product.find(params[:id])
+    @product = Product.find_by_friendly_id!(params[:id])
   end
 
   def update
-    @product = Product.find(params[:id])
+    @product = Product.find_by_friendly_id!(params[:id])
     if @product.update(product_params)
-      redirect_to edit_admin_product_path
+      redirect_to admin_products_path
     else
       render :edit
     end
   end
 
   def show
-    @product = Product.find(params[:id])
+    @product = Product.find_by_friendly_id!(params[:id])
   end
 
   def destroy
-    @product = Product.find(params[:id])
+    @product = Product.find_by_friendly_id!(params[:id])
     @product.destroy
     redirect_to admin_product_path
   end
@@ -47,7 +47,7 @@ class Admin::ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:title,:description,:price,:quantity,:image)
+    params.require(:product).permit(:title,:description,:price,:quantity,:image, :friendly_id)
   end
 
 
