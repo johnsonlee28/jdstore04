@@ -13,8 +13,9 @@
           <%= @product.description %>
         </p>
       </div>
-        <div>  数量:<%= @product.quantity %> </div>
-        <div class="product-price"> ￥ <%= @product.price %> </div>
+      <div>种类：<%= @product.category.try(:name) %></div>
+      <div>数量:<%= @product.quantity %> </div>
+      <div class="product-price"> ￥ <%= @product.price %> </div>
     <div class="add-cart pull-right">
       <%= render :partial => "add-to-cart", :locals => { :product => @product} %>
 

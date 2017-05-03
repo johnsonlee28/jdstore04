@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-fluid">
 
   <h1>Edit Product</h1>
 
@@ -10,6 +10,11 @@
 
    <div class="group">
      <%= f.input :description %>
+   </div>
+
+   <div class="group">
+     <%= f.label :category_id%>
+     <%= f.select :category_id, Category.all.map{ |c| [c.name, c.id]}, {}, :class => "form-control"%>
    </div>
 
    <div class="group">
@@ -42,3 +47,7 @@
 
   <% end %>
 </div>
+
+<script>
+  $("#product_category_id").on("turbolinks:load", function(){select2({theme:"bootstrap"}}));
+</script>
